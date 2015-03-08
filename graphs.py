@@ -110,5 +110,5 @@ if __name__ == '__main__':
     print 'dfi Los Angeles', list(graph.dfi('Los Angeles'))
     print 'bfs Los Angeles --> Boston', graph.bfs('Los Angeles', 'Boston')
     print 'dfs Los Angeles --> Boston', graph.dfs('Los Angeles', 'Boston')
-    print 'Dijikstra:'
+    print 'Dijkstra:'
     print '\n'.join([str(v) for v in sorted(runs, key=lambda x: x['weight'])][-30:])
