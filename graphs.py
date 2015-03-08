@@ -95,7 +95,7 @@ if __name__ == '__main__':
                 int_value = int(value.replace(',', ''))
             except ValueError:
                 continue
-            # 626 is lowest converge-able value
+            # 626 is lowest converge-able value -- but it chops a few verticies
             if int_value < 900 and city and headers[i]:
                 graph.add_edge(city, headers[i], int_value)
                 graph.add_edge(headers[i], city, int_value)
