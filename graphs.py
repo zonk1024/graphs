@@ -38,9 +38,6 @@ class DiGraph(object):
                 visited.append(current)
                 yield current
     def _fs(self, start, finish, iterator):
-        if start == finish:
-            # self-connected verticies
-            return 0
         for i, current in enumerate(iterator(start)):
             if current == finish:
                 return i
