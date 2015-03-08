@@ -37,22 +37,18 @@ class DiGraph(object):
             if current not in visited:
                 visited.append(current)
                 yield current
+    def _fs(self, start, finish, iterator):
+        if start == finish:
+            # self-connected verticies
+            return 0
+        for i, current in enumerate(iterator(start)):
+            if current == finish:
+                return i
+        return -1
     def bfs(self, start, finish):
-        if start == finish:
-            # self-connected verticies
-            return 0
-        for i, current in enumerate(graph.bfi(start)):
-            if current == finish:
-                return i
-        return -1
+        return self._fs(start, finish, self.bfi)
     def dfs(self, start, finish):
-        if start == finish:
-            # self-connected verticies
-            return 0
-        for i, current in enumerate(graph.dfi(start)):
-            if current == finish:
-                return i
-        return -1
+        return self._fs(start, finish, self.dfi)
     def dijkstra(self, start, finish):
         dist_map = {vertex: {'weight': float('inf'), 'path': [], 'done': False} for vertex in self.vertices}
         dist_map[start]['weight'] = 0
